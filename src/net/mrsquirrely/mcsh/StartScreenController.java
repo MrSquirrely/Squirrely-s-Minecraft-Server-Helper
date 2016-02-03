@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 mrsqu
+ * Copyright (C) 2016 James <MrSquirrely.net>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,31 +22,25 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author mrsqu
+ * @author James <MrSquirrely.net>
  */
 public class StartScreenController implements Initializable {
 
+    
     @FXML
     private Button StartButton, DownloadButton, PropertiesButton, PortForwardButton;
     
     private Thread start, download, property, portForward;
     
-    private String MCVersion = "1.8.9";
+    public static String MCVersion = "1.8.9";
     
     /**
      * Initializes the controller class.
@@ -56,11 +50,21 @@ public class StartScreenController implements Initializable {
         
     }    
     
+    /**
+     *
+     * This starts the server
+     */
     @FXML
     public void startClick(MouseEvent event){
-        
+        System.out.println("You just started the server!");
+        start = new Thread(new StartServer());
+        start.start();
     }
     
+    /**
+     *
+     * This downloads the server of your choice, currently only 1.8.9
+     */
     @FXML
     public void downloadClick(MouseEvent event){
         download = new Thread(() -> {
@@ -77,52 +81,20 @@ public class StartScreenController implements Initializable {
         System.out.println("Done!");
     }
     
+    /**
+     *
+     * Show the properties screen
+     */
     @FXML
     public void propertiesClick(MouseEvent event){
         property = new Thread(new ShowPropertyScreen());
         property.run();
-        /*
-        property = new Thread(() -> {
-            try {
-                    Stage propsStage = new Stage();
-                    Parent propsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("PropertiesScreen.fxml"));
-                    Scene propsScene = new Scene(propsRoot);
-                    propsStage.setScene(propsScene);
-                    propsStage.show();
-                } catch (IOException ex) {
-                    Logger.getLogger(StartScreenController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            
-        }, "properties");
-        property.start();
-        */
     }
     
-    /*
-    Parent root;
-        Parent root = FXMLLoader.load(getClass().getResource("StartScreen.fxml"));
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
-        
-        try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("path/to/other/view.fxml"), resources);
-            Stage stage = new Stage();
-            stage.setTitle("My New Stage Title");
-            stage.setScene(new Scene(root, 450, 450));
-            stage.show();
-
-            //hide this current window (if this is whant you want
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    */
-    
+    /**
+     *
+     * @deprecated This is not currently an options and is planned to be removed. There is no real reason to need this.
+     */
     @FXML
     public void portForwardClick(MouseEvent event){
         

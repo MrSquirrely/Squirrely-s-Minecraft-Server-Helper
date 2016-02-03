@@ -1,7 +1,7 @@
 Squirrely's Minecraft Server Helper or MCSH
 ============================================
 This is a simple server helper I am creating! I have a lot I wish to do with this!
-The current version is 0.1.3 InDev.
+The current version is 0.5.0 InDev.
 
 Some Question you might have:
 - Can I fork this code? Yes! As long as you follow the license! Which is GPL V3.0 (http://choosealicense.com/licenses/gpl-3.0/)

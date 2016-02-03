@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 mrsqu
+ * Copyright (C) 2016 James <MrSquirrely.net>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author mrsqu
+ * @author James <MrSquirrely.net>
  */
 public class mainClass extends Application {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 mrsqu
+ * Copyright (C) 2016 James <MrSquirrely.net>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author mrsqu
+ * @author James <MrSquirrely.net>
  */
 public class ShowPropertyScreen extends Application implements Runnable {
 
@@ -42,11 +42,11 @@ public class ShowPropertyScreen extends Application implements Runnable {
 
     @Override
     public void start(Stage propsStage) throws Exception {
-        //Stage propsStage = new Stage();
         Parent propsRoot = FXMLLoader.load(getClass().getResource("PropertiesScreen.fxml"));
         Scene propsScene = new Scene(propsRoot);
         propsStage.setScene(propsScene);
         propsStage.show();
+        PropertiesScreenController.setStage(propsStage);
     }
 
 }

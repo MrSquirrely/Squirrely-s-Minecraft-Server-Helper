@@ -16,30 +16,28 @@
  */
 package net.mrsquirrely.mcsh;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 
 /**
- * FXML Controller class
  *
  * @author James <MrSquirrely.net>
  */
-public class FXMLDocumentController implements Initializable {
-
-    @FXML
-    private WebView youtube;
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        WebEngine webEngine = youtube.getEngine();
-        webEngine.load("https://www.youtube.com/embed/zu1RcFX77A0");
-    }
+public class StartServer implements Runnable{
     
+    String version;
+    
+    @Override
+    public void run() {
+        try {
+            //This is going to get better!
+            this.version = StartScreenController.MCVersion;
+            Process proc = Runtime.getRuntime().exec("java -jar MCServer" + version + ".jar");
+        } catch (IOException ex) {
+            Logger.getLogger(StartServer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

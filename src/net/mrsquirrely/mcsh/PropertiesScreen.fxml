@@ -6,23 +6,98 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="net.mrsquirrely.mcsh.PropertiesScreenController">
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.mrsquirrely.mcsh.PropertiesScreenController">
    <children>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="693.0" prefWidth="583.0">
-         <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Properties" />
-            <Label layoutX="83.0" layoutY="40.0" text="Allow Flight" />
-            <ToggleButton fx:id="AllowFlight" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" selected="true" text="False" />
-            <Label layoutX="79.0" layoutY="106.0" text="Allow Nether" />
-            <ToggleButton fx:id="AllowNether" layoutX="14.0" layoutY="123.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="True" />
-            <Label layoutX="34.0" layoutY="172.0" text="Announce Player Achivements" />
-            <ToggleButton fx:id="AnnouncePlayerAchivements" layoutX="14.0" layoutY="189.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="True" />
-            <Label layoutX="91.0" layoutY="238.0" text="Difficulty" />
-            <Label layoutX="79.0" layoutY="304.0" text="Enable Query" />
-            <ToggleButton fx:id="EnableQuery" layoutX="14.0" layoutY="321.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" selected="true" text="False" />
-            <ComboBox fx:id="Difficulty" layoutX="14.0" layoutY="255.0" prefHeight="40.0" prefWidth="200.0" />
-         </children>
-      </AnchorPane>
+      <ScrollPane prefHeight="480.0" prefWidth="260.0">
+         <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1775.0" prefWidth="244.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Properties" />
+                  <Label layoutX="14.0" layoutY="40.0" text="Allow Flight" />
+                  <ToggleButton fx:id="AllowFlight" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" onMouseClicked="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" selected="true" text="False" />
+                  <Label layoutX="14.0" layoutY="82.0" text="Allow Nether" />
+                  <ToggleButton fx:id="AllowNether" layoutX="14.0" layoutY="99.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="124.0" text="Announce Player Achivements" />
+                  <ToggleButton fx:id="AnnouncePlayerAchivements" layoutX="14.0" layoutY="141.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="165.0" text="Difficulty" />
+                  <Label layoutX="14.0" layoutY="207.0" text="Enable Query" />
+                  <ToggleButton fx:id="EnableQuery" layoutX="14.0" layoutY="224.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" selected="true" text="False" />
+                  <ComboBox fx:id="Difficulty" layoutX="14.0" layoutY="182.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Label layoutX="14.0" layoutY="249.0" text="Enable RCON" />
+                  <ToggleButton fx:id="EnableRCON" layoutX="14.0" layoutY="266.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" selected="true" text="False" />
+                  <Label layoutX="14.0" layoutY="291.0" text="Enable Command Block" />
+                  <ToggleButton fx:id="EnableCommandBLock" layoutX="14.0" layoutY="308.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" selected="true" text="False" />
+                  <Label layoutX="14.0" layoutY="333.0" text="Force Gamemode" />
+                  <ToggleButton fx:id="ForceGamemode" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" selected="true" text="False" />
+                  <Label layoutX="14.0" layoutY="375.0" text="Gamemode" />
+                  <Label layoutX="14.0" layoutY="418.0" text="Generate Structures" />
+                  <ToggleButton fx:id="GenerateStructures" layoutX="14.0" layoutY="435.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="460.0" text="Generator Settings" />
+                  <Label layoutX="14.0" layoutY="502.0" text="Hardcore" />
+                  <ToggleButton fx:id="Hardcore" layoutX="14.0" layoutY="519.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" selected="true" text="False" />
+                  <Label layoutX="14.0" layoutY="544.0" text="Level Name" />
+                  <Label layoutX="14.0" layoutY="586.0" text="Level Seed" />
+                  <Label layoutX="14.0" layoutY="628.0" text="Level Type" />
+                  <Label layoutX="14.0" layoutY="670.0" text="Max Build Height" />
+                  <Label layoutX="14.0" layoutY="712.0" text="Max Players" />
+                  <Label layoutX="14.0" layoutY="754.0" text="Max Tick Time" />
+                  <Label layoutX="14.0" layoutY="796.0" text="Max World Size" />
+                  <Label layoutX="14.0" layoutY="838.0" text="MOTD" />
+                  <Label layoutX="14.0" layoutY="880.0" text="Network Compression Threshold" />
+                  <Label layoutX="14.0" layoutY="922.0" text="Online Mode" />
+                  <ToggleButton fx:id="OnlineMode" layoutX="14.0" layoutY="939.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="964.0" text="Op Permission Level" />
+                  <Label layoutX="14.0" layoutY="1006.0" text="Player Idle Timeout" />
+                  <Label layoutX="14.0" layoutY="1048.0" text="PVP" />
+                  <ToggleButton fx:id="PVP" layoutX="14.0" layoutY="1065.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="1090.0" text="Query Port" />
+                  <Label layoutX="14.0" layoutY="1132.0" text="RCON Password" />
+                  <Label layoutX="14.0" layoutY="1174.0" text="RCON Port" />
+                  <Label layoutX="14.0" layoutY="1216.0" text="Resource Pack" />
+                  <Label layoutX="14.0" layoutY="1258.0" text="Resource Pack Hash" />
+                  <Label layoutX="14.0" layoutY="1300.0" text="Server IP" />
+                  <Label layoutX="14.0" layoutY="1342.0" text="Server Port" />
+                  <Label layoutX="14.0" layoutY="1384.0" text="Snooper Enabled" />
+                  <ToggleButton fx:id="SNooperEnabled" layoutX="14.0" layoutY="1401.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="1426.0" text="Spawn Animals" />
+                  <ToggleButton fx:id="SpawnAnimals" layoutX="14.0" layoutY="1443.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="1468.0" text="Spawn Monsters" />
+                  <ToggleButton fx:id="SpawnMonsters" layoutX="14.0" layoutY="1485.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="1510.0" text="Spawn NPCs" />
+                  <ToggleButton fx:id="SpawnNPCs" layoutX="14.0" layoutY="1527.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="1552.0" text="Spawn Protection" />
+                  <Label layoutX="14.0" layoutY="1594.0" text="User Native Transport" />
+                  <ToggleButton fx:id="UserNativeTransport" layoutX="14.0" layoutY="1611.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" text="True" />
+                  <Label layoutX="14.0" layoutY="1636.0" text="View Distance" />
+                  <Label layoutX="14.0" layoutY="1678.0" text="White List" />
+                  <ToggleButton fx:id="WhiteList" layoutX="14.0" layoutY="1695.0" mnemonicParsing="false" onMouseReleased="#toggleSwitch" prefHeight="25.0" prefWidth="200.0" selected="true" text="False" />
+                  <ComboBox fx:id="Gamemode" layoutX="14.0" layoutY="393.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="GeneratorSettings" layoutX="14.0" layoutY="477.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="LevelName" layoutX="14.0" layoutY="561.0" prefHeight="25.0" prefWidth="200.0" text="world" />
+                  <TextField fx:id="LevelSeed" layoutX="14.0" layoutY="603.0" prefHeight="25.0" prefWidth="200.0" />
+                  <ComboBox fx:id="LevelType" layoutX="14.0" layoutY="645.0" prefHeight="25.0" prefWidth="200.0" />
+                  <ComboBox fx:id="OpPermissionLevel" layoutX="14.0" layoutY="981.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="MaxBuildHeight" layoutX="14.0" layoutY="687.0" prefHeight="25.0" prefWidth="200.0" text="256" />
+                  <TextField fx:id="MaxPlayers" layoutX="14.0" layoutY="729.0" prefHeight="25.0" prefWidth="200.0" text="20" />
+                  <TextField fx:id="MaxTickTime" layoutX="14.0" layoutY="771.0" prefHeight="25.0" prefWidth="200.0" text="60000" />
+                  <TextField fx:id="MaxWorldSize" layoutX="14.0" layoutY="813.0" prefHeight="25.0" prefWidth="200.0" text="29999984" />
+                  <TextField fx:id="MOTD" layoutX="14.0" layoutY="855.0" prefHeight="25.0" prefWidth="200.0" text="A Minecraft Server" />
+                  <TextField fx:id="NetworkCompressionThreshold" layoutX="14.0" layoutY="897.0" prefHeight="25.0" prefWidth="200.0" text="256" />
+                  <TextField fx:id="PlayeridleTimeout" layoutX="14.0" layoutY="1023.0" prefHeight="25.0" prefWidth="200.0" text="0" />
+                  <TextField fx:id="QueryPort" layoutX="14.0" layoutY="1107.0" prefHeight="25.0" prefWidth="200.0" text="25565" />
+                  <TextField fx:id="RCONPassword" layoutX="14.0" layoutY="1149.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="RCONPort" layoutX="14.0" layoutY="1191.0" prefHeight="25.0" prefWidth="200.0" text="25575" />
+                  <TextField fx:id="ResourcePack" layoutX="14.0" layoutY="1233.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="ResourcePackHash" layoutX="14.0" layoutY="1275.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="ServerIP" layoutX="14.0" layoutY="1317.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="ServerPort" layoutX="14.0" layoutY="1359.0" prefHeight="25.0" prefWidth="200.0" text="25565" />
+                  <TextField fx:id="SpawnProtection" layoutX="14.0" layoutY="1569.0" prefHeight="25.0" prefWidth="200.0" text="16" />
+                  <TextField fx:id="ViewDistance" layoutX="14.0" layoutY="1653.0" prefHeight="25.0" prefWidth="200.0" text="10" />
+                  <Button fx:id="ResetButton" layoutX="14.0" layoutY="1727.0" mnemonicParsing="false" onMouseClicked="#resetProperties" prefHeight="25.0" prefWidth="100.0" text="Reset" />
+                  <Button fx:id="SaveButton" layoutX="112.0" layoutY="1727.0" mnemonicParsing="false" onMouseClicked="#saveConfigs" prefHeight="25.0" prefWidth="100.0" text="Save" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
