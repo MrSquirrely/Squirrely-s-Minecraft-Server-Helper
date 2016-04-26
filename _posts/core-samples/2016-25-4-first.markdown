@@ -1,0 +1,11 @@
+---
+title:  "This is the first post!"
+subtitle: "More to come!"
+author: "Mr. Squirrely"
+avatar: "img/authors/mrsquirrely.png"
+image: "https://source.unsplash.com/random"
+date:   2016-04-25 12:19:00
+---
+
+### More post will come soon!
+This is just the first post, this is only to see how things work!
