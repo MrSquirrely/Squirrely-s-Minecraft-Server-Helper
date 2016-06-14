@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="112.0" prefWidth="370.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="net.mrsquirrely.mcsh.MPController">
+   <children>
+      <Label fx:id="VersionLabel" layoutX="318.0" layoutY="79.0" onMouseClicked="#versionClick" onMouseEntered="#versionIn" onMouseExited="#versonOut" text="V 0.1.0" />
+      <JFXComboBox fx:id="MCVersionCombo" layoutX="258.0" layoutY="10.0" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" prefHeight="25.0" prefWidth="78.0" />
+      <Label layoutX="185.0" layoutY="14.0" text="MC Version:" />
+      <JFXButton fx:id="StartServerButton" buttonType="RAISED" layoutX="14.0" layoutY="10.0" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" text="Start Server" />
+      <JFXButton fx:id="DownloadServerButton" buttonType="RAISED" layoutX="14.0" layoutY="36.0" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" text="Download Server" />
+      <JFXButton fx:id="SettingsButton" buttonType="RAISED" layoutX="14.0" layoutY="62.0" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" text="Settings" />
+      <JFXButton fx:id="PortForwardButton" buttonType="RAISED" layoutX="78.0" layoutY="62.0" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" text="Port Forward" />
+      <JFXButton fx:id="ModsButton" buttonType="RAISED" layoutX="120.0" layoutY="36.0" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" text="Mods" />
+      <JFXButton fx:id="ResourcePackButton" buttonType="RAISED" layoutX="90.0" layoutY="10.0" onMouseEntered="#mouseIn" onMouseExited="#mouseOut" text="Resource Pack" />
+   </children>
+</AnchorPane>

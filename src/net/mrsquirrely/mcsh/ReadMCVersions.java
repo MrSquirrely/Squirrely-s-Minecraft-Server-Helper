@@ -16,30 +16,26 @@
  */
 package net.mrsquirrely.mcsh;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
+import com.eclipsesource.json.Json;
+import com.eclipsesource.json.JsonArray;
+import com.eclipsesource.json.JsonObject;
+import com.eclipsesource.json.JsonValue;
+
 
 /**
- * FXML Controller class
  *
  * @author James <MrSquirrely.net>
  */
-public class FXMLDocumentController implements Initializable {
+public class ReadMCVersions {
+    //private static final JsonValue value = Json.parse("res/MCVersions.json");
 
-    @FXML
-    private WebView youtube;
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        WebEngine webEngine = youtube.getEngine();
-        webEngine.load("https://www.youtube.com/embed/zu1RcFX77A0");
+    static JsonArray getVersions() {
+        JsonArray items = Json.parse("res/MCVersions.json").asObject().get("Versions").asArray();
+        return items.asArray();
     }
-    
+    /*
+    JsonObject object = Json.parse(input).asObject();
+String name = object.get("name").asString();
+int quantity = object.get("quantity").asInt();
+    */
 }

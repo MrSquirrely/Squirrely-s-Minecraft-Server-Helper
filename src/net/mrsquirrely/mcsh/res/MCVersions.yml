@@ -1,0 +1,18 @@
+## MCVersions
+---
+Versions:
+    - 1.9.4
+    - 1.8.3
+    - 1.7.10
+---
+1.9.4:
+    1.9.4
+    https://s3.amazonaws.com/Minecraft.Download/versions/1.9.4/minecraft_server.1.9.4.jar
+---
+1.8.3:
+    1.8.3
+    https://s3.amazonaws.com/Minecraft.Download/versions/1.8.3/minecraft_server.1.8.3.jar
+---
+1.7.10:
+    1.7.10
+    https://s3.amazonaws.com/Minecraft.Download/versions/1.9.4/minecraft_server.1.7.10.jar

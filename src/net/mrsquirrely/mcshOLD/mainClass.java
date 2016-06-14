@@ -14,30 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.mrsquirrely.mcsh;
+package net.mrsquirrely.mcshOLD;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 /**
  *
  * @author James <MrSquirrely.net>
  */
-public class StartServer implements Runnable{
-    
-    String version;
-    
+public class mainClass extends Application {
+
     @Override
-    public void run() {
-        try {
-            //This is going to get better!
-            this.version = StartScreenController.MCVersion;
-            Process proc = Runtime.getRuntime().exec("java -jar MCServer" + version + ".jar");
-        } catch (IOException ex) {
-            Logger.getLogger(StartServer.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void start(Stage stage) throws Exception {
+
+        Parent root = FXMLLoader.load(getClass().getResource("StartScreen.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("res/icon.png")));
+        stage.show();
     }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 }

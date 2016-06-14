@@ -16,37 +16,37 @@
  */
 package net.mrsquirrely.mcsh;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
  *
  * @author James <MrSquirrely.net>
  */
-public class ShowPropertyScreen extends Application implements Runnable {
-
+public class MCSH extends Application {
+    
     @Override
-    public void run() {
-        try {
-            Stage propsStage = new Stage();
-            this.start(propsStage);
-        } catch (Exception ex) {
-            Logger.getLogger(ShowPropertyScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainPane.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        MPController.stage(stage, scene);
+        stage.setTitle("Minecraft Server Helper");
+        stage.setScene(scene);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("res/icon.png")));
+        stage.show();
     }
 
-    @Override
-    public void start(Stage propsStage) throws Exception {
-        Parent propsRoot = FXMLLoader.load(getClass().getResource("PropertiesScreen.fxml"));
-        Scene propsScene = new Scene(propsRoot);
-        propsStage.setScene(propsScene);
-        propsStage.show();
-        PropertiesScreenController.setStage(propsStage);
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
-
 }

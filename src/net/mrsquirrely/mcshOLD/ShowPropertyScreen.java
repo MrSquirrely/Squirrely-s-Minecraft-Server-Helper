@@ -14,8 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.mrsquirrely.mcsh;
+package net.mrsquirrely.mcshOLD;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,25 +28,25 @@ import javafx.stage.Stage;
  *
  * @author James <MrSquirrely.net>
  */
-public class mainClass extends Application {
+public class ShowPropertyScreen extends Application implements Runnable {
 
     @Override
-    public void start(Stage stage) throws Exception {
-
-        Parent root = FXMLLoader.load(getClass().getResource("StartScreen.fxml"));
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
-
+    public void run() {
+        try {
+            Stage propsStage = new Stage();
+            this.start(propsStage);
+        } catch (Exception ex) {
+            Logger.getLogger(ShowPropertyScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
+    @Override
+    public void start(Stage propsStage) throws Exception {
+        Parent propsRoot = FXMLLoader.load(getClass().getResource("PropertiesScreen.fxml"));
+        Scene propsScene = new Scene(propsRoot);
+        propsStage.setScene(propsScene);
+        propsStage.show();
+        PropertiesScreenController.setStage(propsStage);
     }
 
 }
