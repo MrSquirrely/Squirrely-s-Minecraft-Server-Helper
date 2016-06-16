@@ -25,7 +25,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- *
+ *This is the main class, this shouldn't need to be touched.
  * @author James <MrSquirrely.net>
  */
 public class MCSH extends Application {

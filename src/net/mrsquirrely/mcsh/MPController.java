@@ -16,10 +16,18 @@
  */
 package net.mrsquirrely.mcsh;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import java.awt.Desktop;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,9 +50,13 @@ import javafx.stage.Stage;
  */
 public class MPController implements Initializable {
 
+    //No FXML Things go here.
     private static Stage thisStage;
     private static Scene thisScene;
     
+    //FXML Things go here, each item has to be on a different line.
+    //Put them where they fit, Label next to other labels, buttons next to other buttons.
+    //If there is a JFX version of what you are using, use it.
     @FXML
     private Label VersionLabel;
     @FXML
@@ -79,32 +91,50 @@ public class MPController implements Initializable {
         MCVersionCombo.setTooltip(new Tooltip("Select a Minecraft server version."));
         
         // -- Populate MC Version Combo box -----------------//
-        MCVersionCombo.getItems().addAll(ReadMCVersions.getVersions());
+        try {
+            //new FileReader("net/mrsquirrely/mcsh/res/MCVersions.json")
+            InputStream in = MCSH.class.getResourceAsStream("res/MCVersions.json");
+            Reader fr = new InputStreamReader(in, "utf-8");
+            JsonElement JElement = new JsonParser().parse(fr);
+            JsonObject JObject = JElement.getAsJsonObject();
+            JsonArray JArray = JObject.getAsJsonArray("Versions");
+            for(int i = 0; i < JArray.size(); i++){
+                MCVersionCombo.getItems().add(JArray.get(i).getAsString());
+            }
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(MPController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
     
+    //This sets the stage and scene so this class can use it, do not infer from main class ever!
     public static void stage(Stage stage, Scene scene){
         MPController.thisStage = stage;
         MPController.thisScene = scene;
     }
     
+    //This changes the mouse cursor to a hand on objects that can be clicked.
     public void mouseIn(MouseEvent event){
         thisScene.setCursor(Cursor.HAND);
     }
     
+    //This changes it back to normal.
     public void mouseOut(MouseEvent event){
         thisScene.setCursor(Cursor.DEFAULT);
     }
     
+    //This sets the cursor and colour of the Version Label.
     public void versionIn(MouseEvent event){
         thisScene.setCursor(Cursor.HAND);
         VersionLabel.setTextFill(BLUE);
     }
     
+    //This changes it back to normal.
     public void versonOut(MouseEvent event){
         thisScene.setCursor(Cursor.DEFAULT);
         VersionLabel.setTextFill(BLACK);
     }
     
+    //This opens the url in the default browser so people can see the source.
     public void versionClick(MouseEvent event){
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/MrSquirrely/Squirrely-s-Minecraft-Server-Helper").toURI());

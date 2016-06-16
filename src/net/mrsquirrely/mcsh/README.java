@@ -16,26 +16,15 @@
  */
 package net.mrsquirrely.mcsh;
 
-import com.eclipsesource.json.Json;
-import com.eclipsesource.json.JsonArray;
-import com.eclipsesource.json.JsonObject;
-import com.eclipsesource.json.JsonValue;
-
-
 /**
  *
  * @author James <MrSquirrely.net>
  */
-public class ReadMCVersions {
-    //private static final JsonValue value = Json.parse("res/MCVersions.json");
-
-    static JsonArray getVersions() {
-        JsonArray items = Json.parse("res/MCVersions.json").asObject().get("Versions").asArray();
-        return items.asArray();
-    }
+public class README {
     /*
-    JsonObject object = Json.parse(input).asObject();
-String name = object.get("name").asString();
-int quantity = object.get("quantity").asInt();
+    This is just a place to put some information.
+    This is not a finished product at all, I have old code in the mcshOLD package until this is completly done.
+    ONLY USE GSON FOR JSON, if you don't like it deal with it, I wont accept a pull request otherwise.
+    DO NOT MESS WITH THE MCVERSIONS.JSON WITHOUT PUTTING WHAT YOU HAVE CHANGED AND WHY YOU CHANGED IT!
     */
 }
